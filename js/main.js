@@ -1,30 +1,31 @@
-// $('.blue')
-// 	.addClass('light')
-// 	.css('background-color', 'orange')
-// 	.text('This is a test!');
+var pattern = ['R', 'Y', 'B', 'R', 'G', 'Y', 'B'];
+			//[0, 1, 2 3, 4]
+var num = 0; //target R=0
 
+// array of basic pattern
 
+$('.panel').on('click', function() {
 
+	//Does the panel you clicked match the
+	//current item in the sequence
 
-// OVER/OUT
-// When I hover over a panel, light it up
-$('.panel')
-	.on('mouseover', function() { // OVER
-		
-		console.log("OVER");
-		
-		// Add the light class
-		$(this).addClass('light');
-	})
-	.on('mouseout', function() { // OUT
-		
-		console.log("OUT");
-		
-		// Remove the light class
-		$(this).removeClass('light');
-	
-	});
+	var colour= $(this).attr('data-colour');
 
+	if ( colour == pattern[num] )  {
+		console.log("CORRECT! :)");
+		num = num + 1;
+		//short cut... num++
+	}
+
+		if (num> pattern.length-1) {
+			console.log("YOU WIN! YAY");
+		}
+
+	else {
+		console.log("WRONG! :(");
+	}
+
+});
 
 
 
